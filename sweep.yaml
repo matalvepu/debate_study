@@ -1,0 +1,48 @@
+method: bayes
+metric:
+  goal: minimize
+  name: valid_loss
+  
+parameters:
+  batch_size:
+    values:
+    - 5
+    
+  epochs:
+    values:
+    - 10
+    - 15
+    - 20
+    
+  learning_rate:
+    values:
+    - 0.0005
+    - 1e-05
+    - 3e-05
+    - 5e-05
+    - 1e-06
+    - 3e-06
+    - 5e-06
+    
+  fc1_out:
+    values:
+    - 512
+    - 256
+    
+  fc1_drop:
+    distribution: uniform
+    max: 0.25
+    min: 0.1
+  
+  max_seq_length:
+    distribution: int_uniform
+    max: 400
+    min: 200
+    
+  warmup_ratio:
+    distribution: uniform
+    max: 0.8
+    min: 0.05
+    
+    
+program: /scratch/mhasan8/debate/debate_study/driver.py
